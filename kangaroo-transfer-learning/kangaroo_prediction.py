@@ -28,11 +28,11 @@ model = mrcnn.model.MaskRCNN(mode="inference",
                              model_dir=os.getcwd())
 
 # Load the weights into the model.
-model.load_weights(filepath="Kangaro_mask_rcnn_trained.h5", 
+model.load_weights(filepath="C:\\Users\\CPE\\Documents\\GitHub\\maskrcnn-from-scratch\\Mask-RCNN-TF2\\kangaroo-transfer-learning\\Kangaro_mask_rcnn_trained_epoch10.h5", 
                    by_name=True)
 
 # load the input image, convert it from BGR to RGB channel
-image = cv2.imread("sample2.jpg")
+image = cv2.imread("C:\\Users\\CPE\\Documents\\GitHub\\maskrcnn-from-scratch\\Mask-RCNN-TF2\\kangaroo-transfer-learning\\ADT_1_0.jpg")
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 # Perform a forward pass of the network to obtain the results
