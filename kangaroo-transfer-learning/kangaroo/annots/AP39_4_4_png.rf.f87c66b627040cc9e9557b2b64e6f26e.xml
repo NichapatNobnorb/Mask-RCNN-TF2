@@ -1,0 +1,14 @@
+<annotation>
+	<folder></folder>
+	<filename>AP39_4_4_png.rf.f87c66b627040cc9e9557b2b64e6f26e.jpg</filename>
+	<path>AP39_4_4_png.rf.f87c66b627040cc9e9557b2b64e6f26e.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>288</width>
+		<height>230</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+</annotation>

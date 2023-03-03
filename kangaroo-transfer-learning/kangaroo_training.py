@@ -12,17 +12,17 @@ class KangarooDataset(mrcnn.utils.Dataset):
         # Adds information (image ID, image path, and annotation file path) about each image in a dictionary.
         self.add_class("dataset", 1, "kangaroo")
 
-        images_dir = dataset_dir + '/images/'
+        images_dir = dataset_dir + "/images/"
         annotations_dir = dataset_dir + '/annots/'
 
         for filename in os.listdir(images_dir):
             image_id = filename[:-4]
 
-            if is_train and int(image_id) >= 150:
-                continue
+            #if is_train and int(image_id) >= 150:
+            #    continue
 
-            if not is_train and int(image_id) < 150:
-                continue
+            #if not is_train and int(image_id) < 150:
+            #    continue
 
             img_path = images_dir + filename
             ann_path = annotations_dir + image_id + '.xml'
@@ -76,12 +76,12 @@ class KangarooConfig(mrcnn.config.Config):
 
 # Train
 train_dataset = KangarooDataset()
-train_dataset.load_dataset(dataset_dir='kangaroo', is_train=True)
+train_dataset.load_dataset(dataset_dir='C:\\Users\\CPE\\Documents\\GitHub\\maskrcnn-from-scratch\\Mask-RCNN-TF2\\kangaroo-transfer-learning\\kangaroo', is_train=True)
 train_dataset.prepare()
 
 # Validation
 validation_dataset = KangarooDataset()
-validation_dataset.load_dataset(dataset_dir='kangaroo', is_train=False)
+validation_dataset.load_dataset(dataset_dir='C:\\Users\\CPE\\Documents\\GitHub\\maskrcnn-from-scratch\\Mask-RCNN-TF2\\kangaroo-transfer-learning\\kangaroo', is_train=False)
 validation_dataset.prepare()
 
 # Model Configuration
@@ -92,15 +92,15 @@ model = mrcnn.model.MaskRCNN(mode='training',
                              model_dir='./', 
                              config=kangaroo_config)
 
-model.load_weights(filepath='mask_rcnn_coco.h5', 
+model.load_weights(filepath='C:\\Users\\CPE\\Documents\\GitHub\\maskrcnn-from-scratch\\Mask-RCNN-TF2\\kangaroo-transfer-learning\\mask_rcnn_coco.h5', 
                    by_name=True, 
                    exclude=["mrcnn_class_logits", "mrcnn_bbox_fc",  "mrcnn_bbox", "mrcnn_mask"])
 
 model.train(train_dataset=train_dataset, 
             val_dataset=validation_dataset, 
             learning_rate=kangaroo_config.LEARNING_RATE, 
-            epochs=1, 
+            epochs=10, 
             layers='heads')
 
-model_path = 'Kangaro_mask_rcnn_trained.h5'
+model_path = 'Kangaro_mask_rcnn_trained_epoch10.h5'
 model.keras_model.save_weights(model_path)

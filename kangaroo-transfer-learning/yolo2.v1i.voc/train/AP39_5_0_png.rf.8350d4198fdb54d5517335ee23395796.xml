@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>AP39_5_0_png.rf.8350d4198fdb54d5517335ee23395796.jpg</filename>
+	<path>AP39_5_0_png.rf.8350d4198fdb54d5517335ee23395796.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>304</width>
+		<height>244</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>0</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>296</xmin>
+			<xmax>304</xmax>
+			<ymin>38</ymin>
+			<ymax>47</ymax>
+		</bndbox>
+	</object>
+</annotation>
