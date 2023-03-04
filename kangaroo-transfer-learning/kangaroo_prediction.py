@@ -8,7 +8,7 @@ import os
 # load the class label names from disk, one label per line
 # CLASS_NAMES = open("coco_labels.txt").read().strip().split("\n")
 
-CLASS_NAMES = ['BG', 'kangaroo']
+CLASS_NAMES = ['BG', 'nucleus']
 
 class SimpleConfig(mrcnn.config.Config):
     # Give the configuration a recognizable name
@@ -32,7 +32,7 @@ model.load_weights(filepath="C:\\Users\\CPE\\Documents\\GitHub\\maskrcnn-from-sc
                    by_name=True)
 
 # load the input image, convert it from BGR to RGB channel
-image = cv2.imread("C:\\Users\\CPE\\Documents\\GitHub\\maskrcnn-from-scratch\\Mask-RCNN-TF2\\kangaroo-transfer-learning\\ADT_1_0.jpg")
+image = cv2.imread("C:\\Users\\CPE\\Documents\\GitHub\\maskrcnn-from-scratch\\Mask-RCNN-TF2\\kangaroo-transfer-learning\\yolo2.v1i.voc\\test\\ADT_2_3_png.rf.33f086ba58ebe1dccb7c711e2ce6f4f7.jpg")
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 # Perform a forward pass of the network to obtain the results
@@ -47,4 +47,4 @@ mrcnn.visualize.display_instances(image=image,
                                   masks=r['masks'], 
                                   class_ids=r['class_ids'], 
                                   class_names=CLASS_NAMES, 
-                                  scores=r['scores'])
+                                  )
